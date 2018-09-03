@@ -6,13 +6,15 @@
 # might help you with this question. You might also like to find a way to
 # code it using some built-in functions.
 
+# Find bigger number between two
 def bigger(a,b):
     if a>b:
         final = a
     else:
         final = b
     return final
-    
+
+# Find lower number between two
 def lower(a,b):
     if a<b:
         final = a
@@ -20,9 +22,11 @@ def lower(a,b):
         final = b
     return final
 
+# Find big number amonth three
 def biggest(a,b,c):
     return bigger(bigger(a,b),c)
-
+    
+# MAIN
 def set_range(a,b,c):
     top = biggest(a,b,c)
     
