@@ -15,21 +15,22 @@
 # as many times as necessary to create the 2nd string (you
 # don't need to keep track of repeat usage).
 
-
-
-
-
+# Parameter = (Main word, Target word)
 def fix_machine(debris, product):
-    length = len(product)
+    # Initialization
+    length = len(product) #length of target word
     find = True
     msg = product
     counter = 0
+
     while True:
         if counter == length:
             break
-        
+        # Each character of the target word
         current = product[counter]
+        # Check if it exists on main word
         found = debris.find(current)
+        # If 1 word is missing then exit loop and change output
         if found == -1:
             find = False
             msg = "Give me something that's not useless next time."
