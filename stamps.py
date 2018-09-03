@@ -9,10 +9,12 @@
 # needed to make up the total.
 #
 
-
+# Common function for checking pence
+# Parameter = (type of pence, remaining amount)
 def count(num, number):
     counter = 0
     
+    #Continuous loop
     while True:
         prev = number
         current = number - num
@@ -31,11 +33,15 @@ def stamps(number):
     
     if number<1:
         return (0,0,0)
-        
+    
+    #Check for 5p
     counter5, remaining5 = count(5, remaining)
+    #Check for 2p
     counter2, remaining2 = count(2, remaining5)
+    #Check for 1p
     counter1, remaining1 = count(1, remaining2)
     
+    #Final
     return counter5, counter2, counter1
 
 print stamps(8)
