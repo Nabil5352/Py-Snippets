@@ -1,5 +1,3 @@
-# THREE GOLD STARS
-
 # Sudoku [http://en.wikipedia.org/wiki/Sudoku]
 # is a logic puzzle where a game
 # is defined by a partially filled
@@ -87,30 +85,49 @@ def is_valid_sudoku(matrix, size):
 def check_sudoku(matrix):
     result = False
     isSudoku, size = is_sudoku(matrix)
-    init_list = matrix[0]
+    init_list = []
     
     if isSudoku:
+        valid = True
         if is_valid_sudoku(matrix, size):
-            result = True
-        
-    return result
-    
-print check_sudoku(incorrect)
-#>>> False
+            counter = 0
+            for i in matrix:
+                init_list = i
+                j_counter = 0
+                if valid == False:
+                    break
+                for j in matrix:
+                    if counter != j_counter:
+                        loop_counter = 0
+                        if valid == False:
+                            break
+                        for k in j:
+                            if i[loop_counter] == k:
+                                valid = False
+                                break
+                            loop_counter += 1
+                    j_counter += 1
+                
+                counter += 1
+        else:
+            valid = False
+            
+    return valid
 
 print check_sudoku(correct)
 #>>> True
 
-#print check_sudoku(incorrect2)
+print check_sudoku(incorrect)
+#>>> False
+
+print check_sudoku(incorrect2)
 #>>> False
 
 print check_sudoku(incorrect3)
 #>>> False
 
-#print check_sudoku(incorrect4)
+print check_sudoku(incorrect4)
 #>>> False
 
-#print check_sudoku(incorrect5)
+print check_sudoku(incorrect5)
 #>>> False
-
-
