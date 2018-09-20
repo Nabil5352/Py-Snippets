@@ -1,3 +1,5 @@
+# Create a Hash Table
+
 def hashtable_add(htable,key,value):
     bucket = hashtable_get_bucket(htable, key)
 
